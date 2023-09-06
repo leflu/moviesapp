@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  margin: 5rem;
+}
+
+.movie_cards {
+  color: white;
+  gap: 1rem;
+  padding: 1rem;
+  display: flex;
+  position: relative;
+}
+.movie_cards--01 {
+  border-radius: 20px;
+  width: 20%;
+  box-shadow: -4px 4px 5px 0px rgba(0, 0, 0, 0.6);
+}
+.movie_cards--01 img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 2px solid white;
+}
+.movie_cards--01 p {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 2rem;
+  min-width: 15%;
+  max-width: -moz-min-content;
+  max-width: min-content;
+}
+.movie_cards--01 h2, .movie_cards--01 p {
+  padding: 1rem;
+}
+.movie_cards--01 h2 {
+  position: absolute;
+}/*# sourceMappingURL=main.css.map */
