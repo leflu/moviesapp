@@ -26,7 +26,7 @@ const peliculas = [
     }
 ];
 
-let infoPelicula = "Taxi Driver"
+let infoPelicula = "Taxi Driver"  // SI SE CAMBIA A UNO DE LOS NOMBRES DE LA PELICULA DEL ARRAY, DA LA INFORMACION DE ESA PELICULA
 
 function mostrarPeliculas(peliculas){
     peliculas.forEach( pelicula => console.log(pelicula.nombre + " " + pelicula.sinopsis + " Dirigida por: " + pelicula.director))
