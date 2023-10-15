@@ -11,8 +11,8 @@ const peliculas = [
     },
     {
       nombre: "Aftersun",
-      director: "Rodrigo García",
-      sinopsis: "Dos personas se encuentran en una playa después de pasar la noche juntos y comparten sus pensamientos y sentimientos."
+      director: "Charlotte Wells",
+      sinopsis: "Veinte años después de sus últimas vacaciones en un decadente centro vacacional, Sophie reflexiona sobre el raro tiempo que pasó con su amoroso e idealista padre, Calum"
     },
     {
       nombre: "Her",
@@ -26,22 +26,22 @@ const peliculas = [
     }
 ];
 
-let infoPelicula = "Taxi Driver"  // SI SE CAMBIA A UNO DE LOS NOMBRES DE LA PELICULA DEL ARRAY, DA LA INFORMACION DE ESA PELICULA
-
-function mostrarPeliculas(peliculas){
-    peliculas.forEach( pelicula => console.log(pelicula.nombre + " " + pelicula.sinopsis + " Dirigida por: " + pelicula.director))
+for(let i = 0; i < peliculas.length; i++){
+  const btn = document.querySelector(`#info-btn${i + 1}`);
+  btn.addEventListener("click", function(){
+    mostrarInfo(i);
+  })
 }
 
-function elegirPelicula(){
-    const eleccion = peliculas.filter((pelicula)=>{
-        if(infoPelicula){
-            return pelicula.nombre === infoPelicula
-        }
-    })
-    console.table(eleccion)
-}
+function mostrarInfo(indice){
+  const tituloPelicula = document.querySelector("#titulo-pelicula");
+  const directorPelicula = document.querySelector("#director-pelicula");
+  const sinopsisPelicula = document.querySelector("#sinopsis-pelicula");
+  tituloPelicula.textContent = peliculas[indice].nombre;
+  directorPelicula.textContent = "Dirigidar por: " + peliculas[indice].director;
+  sinopsisPelicula.textContent = peliculas[indice].sinopsis;
 
-elegirPelicula()
+}
 
 
 
