@@ -9,32 +9,38 @@
   </head>
   <body>
     <h1>PELICULAS</h1>
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar pelicula." id="movie-searchbar" />
+      <button id="movie-searchbtn">Buscar</button>
+    </div>
     <div class="movie_cards">
       <div class="movie_cards--01">
-        <img src="./img/intersetllar.jpg" alt="" id="images" />
+        <img src="./img/intersetllar.jpg" alt="" id="image01" />
       </div>
       <div class="movie_cards--01">
-        <img src="./img/mononoke.png" alt="" />
+        <img src="./img/mononoke.png" alt="" id="image02" />
       </div>
       <div class="movie_cards--01">
-        <img src="./img/aftersun.jpg" alt="" />
+        <img src="./img/aftersun.jpg" alt="" id="image03" />
       </div>
       <div class="movie_cards--01">
-        <img src="./img/her.png" alt="" />
+        <img src="./img/her.png" alt="" id="image04" />
       </div>
       <div class="movie_cards--01">
-        <img src="./img/taxidriver.png" alt="" />
+        <img src="./img/taxidriver.png" alt="" id="image05" />
       </div>
     </div>
     <div class="button">
+      <button id="info-btn0">Información</button>
       <button id="info-btn1">Información</button>
       <button id="info-btn2">Información</button>
       <button id="info-btn3">Información</button>
       <button id="info-btn4">Información</button>
-      <button id="info-btn5">Información</button>
     </div>
-    <h2 id="titulo-pelicula"></h2>
-    <h3 id="director-pelicula"></h3>
-    <p id="sinopsis-pelicula"></p>
+    <div id="infoPeliculas">
+      <h2 id="titulo-pelicula"></h2>
+      <h3 id="director-pelicula"></h3>
+      <p id="sinopsis-pelicula"></p>
+    </div>
   </body>
 </html>

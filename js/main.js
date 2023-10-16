@@ -12,7 +12,7 @@ const peliculas = [
     {
       nombre: "Aftersun",
       director: "Charlotte Wells",
-      sinopsis: "Veinte años después de sus últimas vacaciones en un decadente centro vacacional, Sophie reflexiona sobre el raro tiempo que pasó con su amoroso e idealista padre, Calum"
+      sinopsis: "Veinte años después de sus últimas vacaciones en un decadente centro vacacional, Sophie reflexiona sobre el raro tiempo que pasó con su amoroso e idealista padre, Calum."
     },
     {
       nombre: "Her",
@@ -27,12 +27,11 @@ const peliculas = [
 ];
 
 for(let i = 0; i < peliculas.length; i++){
-  const btn = document.querySelector(`#info-btn${i + 1}`);
+  const btn = document.querySelector(`#info-btn${i}`);
   btn.addEventListener("click", function(){
     mostrarInfo(i);
   })
 }
-
 function mostrarInfo(indice){
   const tituloPelicula = document.querySelector("#titulo-pelicula");
   const directorPelicula = document.querySelector("#director-pelicula");
@@ -40,16 +39,43 @@ function mostrarInfo(indice){
   tituloPelicula.textContent = peliculas[indice].nombre;
   directorPelicula.textContent = "Dirigidar por: " + peliculas[indice].director;
   sinopsisPelicula.textContent = peliculas[indice].sinopsis;
-
 }
 
+function buscarPelicula() {
+  const barraBusqueda = document.getElementById("movie-searchbar").value.toLowerCase();
+
+  const peliculaEncontrada = peliculas.find(function(pelicula) {
+      return pelicula.nombre.toLowerCase() === barraBusqueda;
+  });
+
+  if (peliculaEncontrada) {
+      const tituloPelicula = document.querySelector("#titulo-pelicula");
+      const directorPelicula = document.querySelector("#director-pelicula");
+      const sinopsisPelicula = document.querySelector("#sinopsis-pelicula");
+
+      tituloPelicula.textContent = peliculaEncontrada.nombre;
+      directorPelicula.textContent = "Director: " + peliculaEncontrada.director;
+      sinopsisPelicula.textContent = peliculaEncontrada.sinopsis;
+
+  } 
+  else {
+      const tituloPelicula = document.querySelector("#titulo-pelicula");
+      const directorPelicula = document.querySelector("#director-pelicula");
+      const sinopsisPelicula = document.querySelector("#sinopsis-pelicula");
+      tituloPelicula.textContent = "Pelicula no encontrada."
+      directorPelicula.textContent = "";
+      sinopsisPelicula.textContent = "";
+  }
+}
+
+const botonBusqueda = document.getElementById("movie-searchbtn")
+
+botonBusqueda.addEventListener("click", function(){
+  buscarPelicula();
+})
 
 
-
-
-
-
-
+//La barra de busqueda hace lo mismo que los botones por ahora
 
 
 
