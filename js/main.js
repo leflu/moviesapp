@@ -89,9 +89,12 @@ function limpiarResenas(){
     resenasUsuarios.removeChild(resenasUsuarios.firstChild)
   }
 }
+
 function publicarResena(){
   limpiarResenas();
-  resenas.forEach((resena)=>{
+
+  resenas.forEach(resena=>{
+    const resenasUsuarios = document.querySelector("#container-resenas")
     const tituloResena = document.createElement("h2");
     const ratingText = document.createElement("h3");
     const resenaText = document.createElement("p");
@@ -106,9 +109,11 @@ function publicarResena(){
     resenasUsuarios.appendChild(ratingText)
     resenasUsuarios.appendChild(resenaText)
     resenasUsuarios.appendChild(hr)
+    console.log(resena)
   })
   guardarStorage();
 }
+
 
 
 
