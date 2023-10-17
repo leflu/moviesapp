@@ -10,9 +10,14 @@
   <body>
     <h1>PELICULAS</h1>
     <div class="search-bar">
-      <input type="text" placeholder="Buscar pelicula." id="movie-searchbar" />
+      <input
+        type="text"
+        placeholder="Escribir uno de los 5 nombres de peliculas"
+        id="movie-searchbar"
+      />
       <button id="movie-searchbtn">Buscar</button>
     </div>
+    <hr />
     <div class="movie_cards">
       <div class="movie_cards--01">
         <img src="./img/intersetllar.jpg" alt="" id="image01" />
@@ -30,17 +35,49 @@
         <img src="./img/taxidriver.png" alt="" id="image05" />
       </div>
     </div>
-    <div class="button">
+    <!--     <div class="button">
       <button id="info-btn0">Información</button>
       <button id="info-btn1">Información</button>
       <button id="info-btn2">Información</button>
       <button id="info-btn3">Información</button>
       <button id="info-btn4">Información</button>
-    </div>
+    </div> -->
     <div id="infoPeliculas">
       <h2 id="titulo-pelicula"></h2>
       <h3 id="director-pelicula"></h3>
       <p id="sinopsis-pelicula"></p>
+    </div>
+    <div class="container">
+      <form action="" id="resena-form" class="container-resenas">
+        <label for="resena-form">Nombre de la pelicula </label>
+        <input type="text" id="input-movie_name" />
+        <label for="">Puntuacion </label
+        ><input
+          type="number"
+          min="0"
+          max="5"
+          id="input-rating"
+          placeholder="0-5"
+        />
+        <label for="resena-form">Reseña</label>
+        <textarea
+          name=""
+          id="input-resena"
+          maxlength="200"
+          cols="20"
+          rows="10"
+          placeholder="Escribir aqui"
+        ></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+    <hr />
+    <div class="container-resenas_usuarios">
+      <div class="resenas-usuarios" id="container-resenas">
+        <h2 id="resena-titulo"></h2>
+        <h3 id="rating-text"></h3>
+        <p id="resena-text"></p>
+      </div>
     </div>
   </body>
 </html>

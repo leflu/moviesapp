@@ -13,6 +13,7 @@ h1{
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    color: #161616;
 }
 .search-bar{
     display: flex;
@@ -23,6 +24,7 @@ h1{
     input{
         min-width: 30%;
         padding-left: 0.4rem;
+        border-radius: 0.3rem;
     }
     button{
         padding: 0.3rem 1rem 0.3rem 1rem;
@@ -44,7 +46,7 @@ h1{
 
     
 }
-.button{
+/* .button{
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -67,6 +69,10 @@ h1{
         box-shadow: 0 5px #666;
         transform: translateY(4px);
     }
+} */
+hr{
+    margin: auto;
+    width: 80%;
 }
 .movie_cards{
     color: white;
@@ -91,12 +97,85 @@ h1{
 #infoPeliculas{
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
+    margin-top: 1rem;
+
     p, h2, h3{
-        padding-left: 10.5rem;
+        width: 60%;
         padding-bottom: 0.5rem;
         max-width: 60%;
+        color: #323232;
     }
 }
+.container{
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+.container-resenas{
+    display: flex;
+
+    padding: 1rem;
+    flex-direction: column;
+    align-items: start;
+    width: 60%;
+    textarea{
+        width: 100%;
+        height: 70px;
+        resize: none;
+        padding: 0.4rem;
+    }
+    label{
+        margin-top: 0.4rem;
+        margin-bottom: 0.4rem;
+    }
+    #rating{
+        width: 10%;
+        padding: 0.2rem;
+    }
+    #input-movie_name{
+        padding: 0.3rem;
+        width: 100%;
+    }
+    button{
+        padding: 0.3rem 1rem 0.3rem 1rem;
+        transition: 0.5s;
+        background-color: white;
+        border: solid rgba(108, 108, 108, 0.528) 0.5px;
+        border-radius: 5px;
+        margin-top: 0.5rem;
+    }
+    button:hover{
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.60);
+        transition: 0.5s;
+    }
+    button:active{
+        background-color: #505050;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }    
+}
+
+.container-resenas_usuarios{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+   .resenas-usuarios{
+    color: #323232;
+    width: 60%;
+    align-items: start;
+   }
+   h2,h3,p{
+    margin-top: 0.5rem;
+   }
+}
+
+.hr-resena{
+    margin: 1rem;
+    height: 0.2rem;
+    background-color: black;
+}
+
 
 
