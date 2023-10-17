@@ -91,7 +91,7 @@ function limpiarResenas(){
 }
 function publicarResena(){
   limpiarResenas();
-  resenas.forEach(resena =>{
+  resenas.forEach((resena)=>{
     const tituloResena = document.createElement("h2");
     const ratingText = document.createElement("h3");
     const resenaText = document.createElement("p");
@@ -107,7 +107,6 @@ function publicarResena(){
     resenasUsuarios.appendChild(resenaText)
     resenasUsuarios.appendChild(hr)
   })
-
   guardarStorage();
 }
 
