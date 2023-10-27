@@ -112,32 +112,32 @@ hr {
   height: fit-content;
 }
 
-.container-resenas {
+.container-resenas_form {
   display: flex;
   padding: 1rem;
   flex-direction: column;
   align-items: start;
   width: 60%;
 }
-.container-resenas textarea {
+.container-resenas_form textarea {
   width: 100%;
   height: 70px;
   resize: none;
   padding: 0.4rem;
 }
-.container-resenas label {
+.container-resenas_form label {
   margin-top: 0.4rem;
   margin-bottom: 0.4rem;
 }
-.container-resenas #rating {
+.container-resenas_form #rating {
   width: 10%;
   padding: 0.2rem;
 }
-.container-resenas #input-movie_name {
+.container-resenas_form #input-movie_name {
   padding: 0.3rem;
   width: 100%;
 }
-.container-resenas button {
+.container-resenas_form button {
   padding: 0.3rem 1rem 0.3rem 1rem;
   transition: 0.5s;
   background-color: white;
@@ -145,11 +145,11 @@ hr {
   border-radius: 5px;
   margin-top: 0.5rem;
 }
-.container-resenas button:hover {
+.container-resenas_form button:hover {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.6);
   transition: 0.5s;
 }
-.container-resenas button:active {
+.container-resenas_form button:active {
   background-color: #505050;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
@@ -174,4 +174,12 @@ hr {
   margin: 1rem;
   height: 0.2rem;
   background-color: black;
+}
+
+.error_mensaje {
+  padding: 1rem;
+  text-align: center;
+}
+.error_mensaje p {
+  font-size: 2rem;
 }/*# sourceMappingURL=main.css.map */
