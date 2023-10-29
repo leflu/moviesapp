@@ -1,114 +1,96 @@
-const peliculas = [
-  {
-    nombre: "Interstellar",
-    director: "Christopher Nolan",
-    sinopsis: "Un grupo de exploradores viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad."
-  },
-  {
-    nombre: "Princesa Mononoke",
-    director: "Hayao Miyazaki",
-    sinopsis: "Un joven guerrero se encuentra en medio de una lucha entre los seres humanos y los espíritus del bosque."
-  },
-  {
-    nombre: "Aftersun",
-    director: "Charlotte Wells",
-    sinopsis: "Veinte años después de sus últimas vacaciones en un decadente centro vacacional, Sophie reflexiona sobre el raro tiempo que pasó con su amoroso e idealista padre, Calum."
-  },
-  {
-    nombre: "Her",
-    director: "Spike Jonze",
-    sinopsis: "Un hombre desarrolla una relación romántica con un sistema operativo de inteligencia artificial."
-  },
-  {
-    nombre: "Taxi Driver",
-    director: "Martin Scorsese",
-    sinopsis: "Un taxista solitario y alienado se convierte en un justiciero en las peligrosas calles de Nueva York."
-  }
-]
-
 function buscarPelicula() {
-  const barraBusqueda = document.getElementById("movie-searchbar").value.toLowerCase();
+  let barraBusqueda = document
+    .getElementById("movie-searchbar")
+    .value.toLowerCase();
+  barraBusqueda = encodeURIComponent(barraBusqueda);
+  const key = "7c968b85";
 
-  const peliculaEncontrada = peliculas.find(function(pelicula) {
-      return pelicula.nombre.toLowerCase() === barraBusqueda;
-  })
-
-  if (peliculaEncontrada) {
-      const tituloPelicula = document.querySelector("#titulo-pelicula");
-      const directorPelicula = document.querySelector("#director-pelicula");
-      const sinopsisPelicula = document.querySelector("#sinopsis-pelicula");
-
-      tituloPelicula.textContent = peliculaEncontrada.nombre;
-      directorPelicula.textContent = "Director: " + peliculaEncontrada.director;
-      sinopsisPelicula.textContent = peliculaEncontrada.sinopsis;
-
-  } 
-  else {
-      const tituloPelicula = document.querySelector("#titulo-pelicula");
-      const directorPelicula = document.querySelector("#director-pelicula");
-      const sinopsisPelicula = document.querySelector("#sinopsis-pelicula");
-      tituloPelicula.textContent = "Pelicula no encontrada."
-      directorPelicula.textContent = "";
-      sinopsisPelicula.textContent = "";
+  if (barraBusqueda != "") {
+    const resultado = document.getElementById("movie-data");
+    let url = `http://www.omdbapi.com/?t=${barraBusqueda}&apikey=${key}`;
+    fetch(url)
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        console.log(data.Poster);
+        resultado.innerHTML = `<div class="movie_cards--01">
+        <img src="${data.Poster}" alt="" id="image01" />
+        </div> 
+        <div class="movie_text">
+          <h2>${data.Title}</h2>
+          <hr/>
+          <div class="info-text">
+            <p>Actores: ${data.Actors}</p>
+            <p>Duracion: ${data.Runtime}</p>
+            <p>Director: ${data.Director}</p>
+            <p>Genero: ${data.Genre}</p>
+            <p>Año: ${data.Year}</p>
+            <p>IMDB Rating: ${data.imdbRating}</p>
+          </div>
+          <hr/>
+          <p class="data-plot">${data.Plot}</p>
+        </div>
+        `; 
+      });
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Rellenar todos los campos",
+    });
   }
 }
 
-const botonBusqueda = document.getElementById("movie-searchbtn")
-botonBusqueda.addEventListener("click", buscarPelicula)
+const botonBusqueda = document.getElementById("movie-searchbtn");
+botonBusqueda.addEventListener("click", buscarPelicula);
 
-
-const resenasUsuarios = document.querySelector("#container-resenas")
-const formulario = document.querySelector("#resena-form")
-
-let resenas = []
-
-function errorResena(msg){
-  const mensajeError = document.querySelector("#error")
-  mensajeError.textContent = msg;
-
-  setTimeout(()=>{
-  mensajeError.remove()
-  },3000)
-
+const resenasUsuarios = document.querySelector("#container-resenas");
+const formulario = document.querySelector("#resena-form");
+let resenas = [];
+function limpiarResenas() {
+  while (resenasUsuarios.firstChild) {
+    resenasUsuarios.removeChild(resenasUsuarios.firstChild);
+  }
 }
 
-function limpiarResenas(){
-while(resenasUsuarios.firstChild){
-  resenasUsuarios.removeChild(resenasUsuarios.firstChild)
-}
-}
-
-function publicarResena(){
+function publicarResena() {
   limpiarResenas();
-  console.log(resenas)
-  resenas.forEach(resena=>{
-    const resenasUsuarios = document.querySelector("#container-resenas")
+  console.log(resenas);
+  resenas.forEach((resena) => {
+    const resenasUsuarios = document.querySelector("#container-resenas");
     const tituloResena = document.createElement("h2");
     const ratingText = document.createElement("h3");
     const resenaText = document.createElement("p");
-    const hr = document.createElement("hr")
-    hr.setAttribute("class", "hr-resena")
+    const hr = document.createElement("hr");
+    hr.setAttribute("class", "hr-resena");
 
     tituloResena.textContent = resena.nombre;
     ratingText.textContent = "Puntuacion: " + resena.rating;
     resenaText.textContent = "Reseña: " + resena.resena;
-    
-    resenasUsuarios.appendChild(tituloResena)
-    resenasUsuarios.appendChild(ratingText)
-    resenasUsuarios.appendChild(resenaText)
-    resenasUsuarios.appendChild(hr)
-    console.log(resena)
-  })
+
+    resenasUsuarios.appendChild(tituloResena);
+    resenasUsuarios.appendChild(ratingText);
+    resenasUsuarios.appendChild(resenaText);
+    resenasUsuarios.appendChild(hr);
+    console.log(resena);
+  });
   guardarStorage();
-  console.log(resenas)
+  console.log(resenas);
 }
-function agregarResena(evt){
+function agregarResena(evt) {
   evt.preventDefault();
-  const nombrePelicula = document.querySelector("#input-movie_name").value;
+  const nombrePelicula = document.getElementById("movie-searchbar").value.toUpperCase();
   const ratingPelicula = document.querySelector("#input-rating").value;
   const resenaPelicula = document.querySelector("#input-resena").value;
-  if(nombrePelicula === "" || resenaPelicula === "" || ratingPelicula === ""){
-    errorResena("Porfavor rellenar todos los campos");
+  if (resenaPelicula === "" || ratingPelicula === "" || nombrePelicula === "") {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Rellenar todos los campos",
+    });
     return;
   }
 
@@ -116,21 +98,20 @@ function agregarResena(evt){
     id: Date.now(),
     nombre: nombrePelicula,
     rating: ratingPelicula,
-    resena: resenaPelicula  
-  }
-  console.log(objResena)
+    resena: resenaPelicula
+  };
+  console.log(objResena);
 
-  resenas = [...resenas, objResena]
+  resenas = [...resenas, objResena];
   formulario.reset();
-  publicarResena()
+  publicarResena();
 }
-function guardarStorage(){
-  localStorage.setItem("resenas", JSON.stringify(resenas))
+function guardarStorage() {
+  localStorage.setItem("resenas", JSON.stringify(resenas));
 }
-window.addEventListener("DOMContentLoaded", ()=>{
+window.addEventListener("DOMContentLoaded", () => {
   resenas = JSON.parse(localStorage.getItem("resenas")) || [];
-  publicarResena()
-})
+  publicarResena();
+});
 
 formulario.addEventListener("submit", agregarResena);
-

@@ -3,47 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Movie App</title>
     <link rel="stylesheet" href="./scss/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script src="./js/main.js" defer></script>
   </head>
   <body>
-    <h1>PELICULAS</h1>
+    <h1>Las buenas movies</h1>
     <div class="search-bar">
-      <input
-        type="text"
-        placeholder="Escribir uno de los 5 nombres de peliculas"
-        id="movie-searchbar"
-      />
+      <input type="text" placeholder="Buscar pelicula" id="movie-searchbar" />
       <button id="movie-searchbtn">Buscar</button>
     </div>
     <hr />
-    <div class="movie_cards">
-      <div class="movie_cards--01">
-        <img src="./img/intersetllar.jpg" alt="" id="image01" />
-      </div>
-      <div class="movie_cards--01">
-        <img src="./img/mononoke.png" alt="" id="image02" />
-      </div>
-      <div class="movie_cards--01">
-        <img src="./img/aftersun.jpg" alt="" id="image03" />
-      </div>
-      <div class="movie_cards--01">
-        <img src="./img/her.png" alt="" id="image04" />
-      </div>
-      <div class="movie_cards--01">
-        <img src="./img/taxidriver.png" alt="" id="image05" />
-      </div>
-    </div>
-    <div id="infoPeliculas">
-      <h2 id="titulo-pelicula"></h2>
-      <h3 id="director-pelicula"></h3>
-      <p id="sinopsis-pelicula"></p>
-    </div>
+    <div class="movie_cards" id="movie-data"></div>
     <div class="container">
       <form action="" id="resena-form" class="container-resenas_form">
-        <label for="resena-form">Nombre de la pelicula </label>
-        <input type="text" id="input-movie_name" />
         <label for="">Puntuacion </label
         ><input
           type="number"

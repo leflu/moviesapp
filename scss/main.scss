@@ -6,7 +6,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
-    
 }
 
 h1{
@@ -21,12 +20,15 @@ h1{
     padding: 1rem;
     gap: 1rem;
 
+
     input{
-        min-width: 30%;
+        min-height: 30%;
+        min-width: 40%;
         padding-left: 0.4rem;
         border-radius: 0.3rem;
     }
     button{
+        min-height: 30%;
         padding: 0.3rem 1rem 0.3rem 1rem;
         transition: 0.5s;
         background-color: white;
@@ -46,30 +48,6 @@ h1{
 
     
 }
-/* .button{
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem;
-
-    button{
-        width: 15%;
-        padding: 1rem;
-        transition: 0.5s;
-        background-color: white;
-        border: solid rgba(108, 108, 108, 0.528) 0.5px;
-        border-radius: 5px;
-    }
-    button:hover{
-        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.60);
-        transition: 0.5s;
-    }
-    button:active{
-        background-color: #505050;
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
-    }
-} */
 hr{
     margin: auto;
     width: 80%;
@@ -78,12 +56,13 @@ hr{
     color: white;
     gap: 1rem;
     padding: 1rem;
+    margin-left: 5rem;
     display: flex;
-    justify-content: center;  
+    justify-content: start;  
     position: relative;
     &--01{
         border-radius: 20px;
-        width: 15%;
+        width: 30%;
         box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.60);
         img{
             object-fit: cover;
@@ -93,7 +72,37 @@ hr{
             border: 2px solid white;
         }
     }
+    .text-data{
+        color: black;
+        display: flex;
+        justify-content: center;
+    }
 }
+.data-plot{
+    font-weight: 700;
+    font-size: 2rem;
+}
+.movie_text{
+    color: black;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.3rem;
+    >*{
+        margin: 0.1rem;
+    }
+    h2{
+        font-size: 3rem;
+    }
+
+    .info-text{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
 #infoPeliculas{
     display: flex;
     flex-direction: column;
