@@ -62,7 +62,7 @@ hr{
     position: relative;
     &--01{
         border-radius: 20px;
-        width: 30%;
+        width: 20%;
         box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.60);
         img{
             object-fit: cover;
@@ -185,11 +185,4 @@ hr{
     background-color: black;
 }
 
-.error_mensaje{
-    padding: 1rem;
-    text-align: center;
-    p{
-        font-size: 2rem;
-    }
-}
 

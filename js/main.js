@@ -10,12 +10,9 @@ function buscarPelicula() {
     let url = `http://www.omdbapi.com/?t=${barraBusqueda}&apikey=${key}`;
     fetch(url)
       .then((res) => {
-        console.log(res);
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-        console.log(data.Poster);
         resultado.innerHTML = `<div class="movie_cards--01">
         <img src="${data.Poster}" alt="" id="image01" />
         </div> 
@@ -35,6 +32,7 @@ function buscarPelicula() {
         </div>
         `; 
       });
+      
   } else {
     Swal.fire({
       icon: "error",
@@ -44,12 +42,16 @@ function buscarPelicula() {
   }
 }
 
+
 const botonBusqueda = document.getElementById("movie-searchbtn");
 botonBusqueda.addEventListener("click", buscarPelicula);
 
+
 const resenasUsuarios = document.querySelector("#container-resenas");
 const formulario = document.querySelector("#resena-form");
+
 let resenas = [];
+
 function limpiarResenas() {
   while (resenasUsuarios.firstChild) {
     resenasUsuarios.removeChild(resenasUsuarios.firstChild);
@@ -58,7 +60,6 @@ function limpiarResenas() {
 
 function publicarResena() {
   limpiarResenas();
-  console.log(resenas);
   resenas.forEach((resena) => {
     const resenasUsuarios = document.querySelector("#container-resenas");
     const tituloResena = document.createElement("h2");
@@ -75,11 +76,10 @@ function publicarResena() {
     resenasUsuarios.appendChild(ratingText);
     resenasUsuarios.appendChild(resenaText);
     resenasUsuarios.appendChild(hr);
-    console.log(resena);
   });
   guardarStorage();
-  console.log(resenas);
 }
+
 function agregarResena(evt) {
   evt.preventDefault();
   const nombrePelicula = document.getElementById("movie-searchbar").value.toUpperCase();
@@ -95,12 +95,10 @@ function agregarResena(evt) {
   }
 
   const objResena = {
-    id: Date.now(),
     nombre: nombrePelicula,
     rating: ratingPelicula,
     resena: resenaPelicula
   };
-  console.log(objResena);
 
   resenas = [...resenas, objResena];
   formulario.reset();
@@ -115,3 +113,5 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 formulario.addEventListener("submit", agregarResena);
+
+

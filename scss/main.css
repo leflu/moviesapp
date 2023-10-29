@@ -59,7 +59,7 @@ hr {
 }
 .movie_cards--01 {
   border-radius: 20px;
-  width: 30%;
+  width: 20%;
   box-shadow: -4px 4px 5px 0px rgba(0, 0, 0, 0.6);
 }
 .movie_cards--01 img {
@@ -183,12 +183,4 @@ hr {
   margin: 1rem;
   height: 0.2rem;
   background-color: black;
-}
-
-.error_mensaje {
-  padding: 1rem;
-  text-align: center;
-}
-.error_mensaje p {
-  font-size: 2rem;
 }/*# sourceMappingURL=main.css.map */
